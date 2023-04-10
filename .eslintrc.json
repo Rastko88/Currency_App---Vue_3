@@ -1,0 +1,42 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".vue"]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["vue", "prettier"],
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "rules": {
+        // This rule is conflicting with composition API implementation
+        // Disabled on .vue files since the rule vue/no-unused-vars will do the job
+        "no-unused-vars": "off"
+      }
+    }
+  ],
+  "globals": {
+    "module": true,
+    "process": true
+  }
+}
